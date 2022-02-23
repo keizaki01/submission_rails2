@@ -1,0 +1,36 @@
+// 共通画面のcss
+*{
+  margin:0;
+  padding:0;
+  }
+button {
+  // float: right;
+}
+a{
+  text-decoration: none;
+}
+.parents_header{
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+}
+.title{
+  margin-right: 100rem;
+}
+// index画面のcss
+.index_top{
+  background-image: url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  height: 50rem;
+}
+.login{
+  background-color: #4a90e2;
+  color: white;
+}
+.registration{
+  background-color: #6c757d;
+  color: white;
+}

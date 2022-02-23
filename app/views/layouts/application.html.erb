@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <header class = "parents_header">
+      <% if user_signed_in? %>
+       <h1 class = title><%= link_to "Pote Share", :reservations_index%></h1>
+       <button class = "logout"><%= link_to "ログアウト", :destroy_user_session %></button>  
+      <% else %>
+       <h1 class = title><%= link_to "Pote Share", :reservations_index%></h1>
+       <button class = "registration"><%= link_to "登録する", :new_user_registration %></button>
+       <button class = "login"><%= link_to "ログイン", :user_session %></button>
+      <% end %>
+    </header>
+    <main>
+
+    </main>
+    <footer>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </footer>
     <%= yield %>
   </body>
 </html>
