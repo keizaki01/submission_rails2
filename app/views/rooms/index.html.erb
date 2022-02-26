@@ -1,0 +1,14 @@
+<h1>登録済みルーム一覧</h1>
+<table>
+  <% @rooms.each do |room| %>
+    <tr>
+      <td><%= room.id %></td>
+      <td><%= room.room_image %></td>
+      <td><%= room.room_name %></td>
+      <td><%= room.comment %></td>
+      <td><%= room.price %></td>
+      <td><%= room.address %></td>
+      
+    </tr>
+  <% end %>
+</table>

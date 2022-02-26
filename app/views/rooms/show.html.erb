@@ -1,0 +1,26 @@
+<h3>ルーム詳細</h3>
+ 
+    <table>
+      <tr>
+        <th>ルーム名</th>
+        <td><%= @room.room_name %></td>
+      </tr>
+      <tr>
+        <th>ルーム紹介</th>
+        <td><%= @room.comment %></td>
+      </tr>
+      <tr>
+        <th>料金</th>
+        <td><%= @room.price %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @room.address %></td>
+      </tr>
+      <tr>
+        <th>ルーム画像</th>
+        <td><%= image_tag @room.room_image.url %></td>
+      </tr>
+    </table>
+ 
+   
