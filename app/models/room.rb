@@ -5,4 +5,5 @@ class Room < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :address, presence: true
   validates :room_image, presence: true
+  has_many :roomreservations
 end

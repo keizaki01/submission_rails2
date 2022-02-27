@@ -63,9 +63,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
   def create
-    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar))
+    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
    if @user.save
-     redirect_to users_show_path
+     redirect_to mypage_path
    else 
      render "new"
    end

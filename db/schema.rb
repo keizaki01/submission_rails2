@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_23_070141) do
+ActiveRecord::Schema.define(version: 2022_02_27_033249) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "roomreservations", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "person_num"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,6 +36,7 @@ ActiveRecord::Schema.define(version: 2022_02_23_070141) do
     t.string "room_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_02_23_070141) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "avatar"
+    t.string "comment"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

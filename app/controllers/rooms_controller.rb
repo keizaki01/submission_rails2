@@ -8,7 +8,8 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new(params.require(:room).permit(:room_name,:comment,:price,:address,:room_image))
+   
+    @room = Room.new(params.require(:room).permit(:room_name,:comment,:price,:address,:room_image).merge(user_id: current_user.id))
     if @room.save
       redirect_to rooms_path
     else
@@ -18,6 +19,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @user = User.find_by(id:@room.user_id)
   end
 
   def edit

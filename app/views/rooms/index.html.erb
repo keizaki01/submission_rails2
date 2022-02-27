@@ -1,14 +1,30 @@
-<h1>登録済みルーム一覧</h1>
+<h1>登録済みルーム一覧（全アカウント分）</h1>
 <table>
-  <% @rooms.each do |room| %>
+  
+   <thead>
+    <tr>
+     <th>ルームID</th>
+     <th>ルーム画像</th>
+     <th>ルーム名</th>
+     <th>ルーム紹介</th>
+     <th>料金</th>
+     <th>住所</th>
+     <th>投稿者ID</th>
+     <th>詳細・予約</th>
+    </tr>
+   </thead>
+   <tbody>
+    <% @rooms.each do |room| %>
     <tr>
       <td><%= room.id %></td>
-      <td><%= room.room_image %></td>
+      <td><%= room.room_image %></td>  
       <td><%= room.room_name %></td>
       <td><%= room.comment %></td>
       <td><%= room.price %></td>
       <td><%= room.address %></td>
-      
+      <td><%= room.user_id %></td>
+      <td><%= link_to"参照",room %></td>
+   </tbody>  
     </tr>
   <% end %>
 </table>

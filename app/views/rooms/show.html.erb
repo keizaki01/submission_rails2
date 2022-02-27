@@ -1,5 +1,6 @@
+<%# <%= form_for [@room, @room.roomreservations.new] do |f| %> %>
+<%# <%= f.hidden_field :room_id, value: @room.id %> %>
 <h3>ルーム詳細</h3>
- 
     <table>
       <tr>
         <th>ルーム名</th>
@@ -19,8 +20,16 @@
       </tr>
       <tr>
         <th>ルーム画像</th>
-        <td><%= image_tag @room.room_image.url %></td>
+        <td><%= image_tag @room.room_image.url, size: '300x400' %></td>
+      </tr>
+      <tr>
+        <th>投稿者ID</th>
+        <td><%= @room.user_id %></td>
       </tr>
     </table>
+    
+    <%# <%= link_to"予約する", room_roomreservation_path %> %> %>
+<%# <% end %> %>
+    
  
    
