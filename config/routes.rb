@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :rooms
   resources :rooms do
     resources :roomreservations
+    collection do
+     post "roomreservations/confirm", to:"roomreservations#confirm"
+    end
   end
 end
 

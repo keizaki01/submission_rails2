@@ -1,0 +1,28 @@
+<h1>予約確認画面</h1>
+
+<table>
+
+  <tr>
+    <th>開始日</th>
+    <th>終了日</th>
+    <th>合計人数</th>
+  </tr>
+
+<%= form_with model: [@room, @roomreservation] do |f| %>
+
+  <tr>
+    <td><%= @roomreservation.start_date %></td>
+    <td><%= @roomreservation.end_date %></td>
+    <td><%= @roomreservation.person_num %></td>
+  </tr>
+</table>
+
+<%= f.hidden_field :user_id, value: @users %>
+<%= f.hidden_field :room_id, value: @room.id %>
+<%= f.hidden_field :room_name, value: @room.room_name %>
+<%= f.hidden_field :comment, value: @room.comment %>
+<%= f.hidden_field :room_image, value: @room.room_image %>
+
+<%= f.submit "予約完了する"%>
+
+<% end %>

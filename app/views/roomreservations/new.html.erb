@@ -1,0 +1,31 @@
+<h1>予約画面</h1>
+
+<%= form_with url: roomreservations_confirm_rooms_path do |f| %>
+<tr>
+<th><%= f.label:start_date,"開始日" %></th>
+<td><%= f.datetime_field:start_date %></td>
+</tr>
+
+<tr>
+<th><%= f.label:end_date,"終了日" %></th>
+<td><%= f.datetime_field:end_date %></td>
+</tr>
+
+<tr>
+<th><%= f.label:person_num,"人数" %></th>
+<td><%= f.number_field:person_num %></td>
+</tr>
+
+<%= f.hidden_field :user_id, value: @users %>
+<%= f.hidden_field :room_id, value: @room.id %>
+<%= f.hidden_field :room_name, value: @room.room_name %>
+<%= f.hidden_field :comment, value: @room.comment %>
+<%= f.hidden_field :room_image, value: @room.room_image %>
+
+
+<%= f.submit "登録"%>
+
+<% end %>
+
+<%# url: roomreservations_confirm_rooms_path %>
+<%# model: [@room, @roomreservation] %>
