@@ -1,4 +1,4 @@
-<h1>予約確認画面</h1>
+<h1>予約変更確認画面</h1>
 
 <table>
 
@@ -6,22 +6,16 @@
     <th>開始日</th>
     <th>終了日</th>
     <th>合計人数</th>
-    <th>一人あたり金額</th>
-    <th>宿泊日数</th>
     <th>合計金額</th>
   </tr>
 
 <%= form_with model: [@room, @roomreservation],  url: {action: 'create'} do |f| %>
 
   <tr>
-    <td><%= @roomreservation.start_date.strftime("%Y/%m/%d") %></td>
-    <td><%= @roomreservation.end_date.strftime("%Y/%m/%d") %></td>
-    <td><%= @roomreservation.person_num %>人</td>
-    <td><%= @roomreservation.price %>円</td>
-    <td><%= @day.floor %>日</td>
-    <td><%= @total_price.floor %>円</td>
-    
-
+    <td><%= f.start_date %></td>
+    <td><%= f.end_date %></td>
+    <td><%= f.person_num %></td>
+    <%# <td><%= @total_price %></td> %>
   </tr>
 </table>
 
@@ -33,9 +27,10 @@
 <%= f.hidden_field :room_name, value: @roomreservation.room_name %>
 <%= f.hidden_field :comment, value: @roomreservation.comment %>
 <%= f.hidden_field :room_image, value: @roomreservation.room_image %>
-<%= f.hidden_field :price, value: @roomreservation.price %>
-<%= f.hidden_field :total_price, value: @total_price %>
 
 <%= f.submit "予約完了する"%>
 
 <% end %>
+
+
+<%# url: {action: 'create'} %>

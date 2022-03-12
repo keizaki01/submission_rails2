@@ -12,7 +12,7 @@
       </tr>
       <tr>
         <th>料金</th>
-        <td><%= @room.price %></td>
+        <td><%= @room.price %>円</td>
       </tr>
       <tr>
         <th>住所</th>
@@ -29,6 +29,9 @@
     </table>
     
     <%= link_to"予約する", new_room_roomreservation_path(@room) %>
+    <%= link_to"登録済み一覧に戻る", rooms_path %>
+
+   
 
     
 

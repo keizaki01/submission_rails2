@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_06_015355) do
+ActiveRecord::Schema.define(version: 2022_03_12_121302) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2022_03_06_015355) do
     t.string "room_name"
     t.string "comment"
     t.string "room_image"
+    t.integer "price"
+    t.integer "total_price"
     t.index ["room_id"], name: "index_roomreservations_on_room_id"
     t.index ["user_id"], name: "index_roomreservations_on_user_id"
   end

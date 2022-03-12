@@ -1,11 +1,8 @@
-<h1>登録済みルーム一覧（全アカウント分）</h1>
-
 <table>
-  
+ <h1>検索結果:<%= @rooms.count %>件</h1> 
    <thead>
     <tr>
      <th>ルームID</th>
-     <%# <th>ルーム画像</th> %>
      <th>ルーム名</th>
      <th>ルーム紹介</th>
      <th>料金</th>
@@ -21,7 +18,6 @@
     <% @rooms.each do |room| %>
     <tr>
       <td><%= room.id %></td>
-      <%# <td><%= room.room_image %></td>   %>
       <td><%= room.room_name %></td>
       <td><%= room.comment %></td>
       <td><%= room.price %>円</td>

@@ -1,17 +1,18 @@
 
-
 <table>
       <thead>
         <tr>
-          <%# <th>合計料金</th> %>
           <th>ユーザー番号</th>
           <th>部屋番号</th>
-          <th>ルーム画像</th>
+          <%# <th>ルーム画像</th> %>
           <th>ルーム名</th>
           <th>ルーム紹介</th>
+          <th>合計料金</th>
           <th>開始日</th>
           <th>終了日</th>
           <th>予約確定日時</th>
+          <th>予約変更</th>
+          <th>キャンセル</th>
         </tr>
       </thead>
  
@@ -21,15 +22,18 @@
       <% @roomreservations.each do |roomreservation| %>
         <td><%= roomreservation.user_id %></td>
         <td><%= roomreservation.room_id %></td>
-        <td><%= roomreservation.room_image %></td>
-        <td><%= link_to roomreservation.room_name,reservations_index_path %>
+        <%# <td><%= roomreservation.room_image %></td> %>
+        <td><%= link_to roomreservation.room_name, room_path(roomreservation.room_id) %>
         <td><%= roomreservation.comment %></td>
-        <td><%= roomreservation.start_date %></td>
-        <td><%= roomreservation.end_date %></td>
-        <td><%= roomreservation.created_at %></td>
+        <td><%= roomreservation.total_price %>円</td>
+        <td><%= roomreservation.start_date.strftime("%Y/%m/%d") %></td>
+        <td><%= roomreservation.end_date.strftime("%Y/%m/%d") %></td>
+        <td><%= roomreservation.created_at.strftime("%Y/%m/%d") %></td>
+        <td><%= link_to"予約変更",edit_room_roomreservation_path(roomreservation.room_id, roomreservation.id) %></td>
+        <td><%= link_to "キャンセル", room_roomreservation_path(roomreservation.room_id, roomreservation.id), method: :delete, data: { confirm: "本当にキャンセルしますか？" } %></td>
       </tr>
       <% end %>
+
       </tbody>
     
     </table>
-
