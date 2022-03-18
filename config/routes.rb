@@ -19,7 +19,7 @@ Rails.application.routes.draw do
      get 'search' => 'rooms#search'
     end  
 
-    resources :roomreservations
+    resources :roomreservations, :except => :show
     collection do
      post ":room_id/roomreservations/confirm", to:"roomreservations#confirm"
      patch ":room_id/roomreservations/:id/editconfirm", to:"roomreservations#editconfirm"

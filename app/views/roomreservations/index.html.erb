@@ -1,39 +1,31 @@
 
-<table>
-      <thead>
-        <tr>
-          <th>ユーザー番号</th>
-          <th>部屋番号</th>
-          <%# <th>ルーム画像</th> %>
-          <th>ルーム名</th>
-          <th>ルーム紹介</th>
-          <th>合計料金</th>
-          <th>開始日</th>
-          <th>終了日</th>
-          <th>予約確定日時</th>
-          <th>予約変更</th>
-          <th>キャンセル</th>
-        </tr>
-      </thead>
- 
-      <tbody>
-      <tr>  
-      
-      <% @roomreservations.each do |roomreservation| %>
-        <td><%= roomreservation.user_id %></td>
-        <td><%= roomreservation.room_id %></td>
-        <%# <td><%= roomreservation.room_image %></td> %>
-        <td><%= link_to roomreservation.room_name, room_path(roomreservation.room_id) %>
-        <td><%= roomreservation.comment %></td>
-        <td><%= roomreservation.total_price %>円</td>
-        <td><%= roomreservation.start_date.strftime("%Y/%m/%d") %></td>
-        <td><%= roomreservation.end_date.strftime("%Y/%m/%d") %></td>
-        <td><%= roomreservation.created_at.strftime("%Y/%m/%d") %></td>
-        <td><%= link_to"予約変更",edit_room_roomreservation_path(roomreservation.room_id, roomreservation.id) %></td>
-        <td><%= link_to "キャンセル", room_roomreservation_path(roomreservation.room_id, roomreservation.id), method: :delete, data: { confirm: "本当にキャンセルしますか？" } %></td>
-      </tr>
-      <% end %>
-
-      </tbody>
-    
-    </table>
+<table class="table">
+  <thead>
+    <tr>
+      <%# <th scope="col">ルーム画像</th> %>
+      <th scope="col">ルーム名</th>
+      <th scope="col">ルーム紹介</th>
+      <th scope="col">合計料金</th>
+      <th scope="col">開始日</th>
+      <th scope="col">終了日</th>
+      <th scope="col">予約確定日時</th>
+      <th scope="col">予約変更</th>
+      <th scope="col">キャンセル</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @roomreservations.each do |roomreservation| %>
+    <tr>
+      <td><%= link_to roomreservation.room_name, room_path(roomreservation.room_id) %></td>
+      <td><%= image_tag roomreservation.room_image.url %></td>
+      <td><%= roomreservation.comment %></td>
+      <td><%= roomreservation.total_price %>円</td>
+      <td><%= roomreservation.start_date.strftime("%Y/%m/%d") %></td>
+      <td><%= roomreservation.end_date.strftime("%Y/%m/%d") %></td>
+      <td><%= roomreservation.created_at.strftime("%Y/%m/%d") %></td>
+      <td><%= link_to"予約変更",edit_room_roomreservation_path(roomreservation.room_id, roomreservation.id) %></td>
+      <td><%= button_to "キャンセル",room_roomreservation_path(roomreservation.room_id, roomreservation.id), method: :delete, data: { confirm: "本当にキャンセルしますか？" } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

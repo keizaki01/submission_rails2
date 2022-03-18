@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 before_action :authenticate_user!, only: [:mypage, :edit, :update]
 before_action :set_user, only: [:show, :edit, :update]
 
+  # def after_sign_in_path_for(resource)
+  #   user_path(current_user)
+  # end
+
   def mypage
     redirect_to user_path(current_user)
   end
@@ -41,4 +45,8 @@ before_action :set_user, only: [:show, :edit, :update]
   def user_params
     params.fetch(:user, {}).permit(:name)
   end
+
+  def after_sign_in_path_for(resource)
+    user_path(resource)
+  end 
 end

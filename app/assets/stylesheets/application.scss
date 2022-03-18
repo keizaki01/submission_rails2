@@ -10,6 +10,24 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ 
  */
+ @import "bootstrap";
+
+
+//  .content_parts{
+//   margin-bottom: 3rem;
+//   margin-top: 2rem;
+// }
+.container .enclosure_box{
+  border: 1px solid #eaedef;
+}
+
+ .content_parts{
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.contentbox .centercomponents{
+  vertical-align: middle;
+}
