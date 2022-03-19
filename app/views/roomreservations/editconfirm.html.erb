@@ -9,12 +9,12 @@
     <th>合計金額</th>
   </tr>
 
-<%= form_with model: [@room, @roomreservation],  url: {action: 'create'} do |f| %>
+<%= form_with model: @roomreservation,  url: {action: 'update'} do |f| %>
 
   <tr>
-    <td><%= f.start_date %></td>
-    <td><%= f.end_date %></td>
-    <td><%= f.person_num %></td>
+    <td><%= @roomreservation.start_date.strftime("%Y/%m/%d") %></td>
+    <td><%= @roomreservation.end_date.strftime("%Y/%m/%d") %></td>
+    <td><%= roomreservation.person_num :person_num %></td>
     <%# <td><%= @total_price %></td> %>
   </tr>
 </table>

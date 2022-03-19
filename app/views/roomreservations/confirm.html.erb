@@ -1,41 +1,53 @@
+
+
+<div class="container">
 <h1>予約確認画面</h1>
-
-<table>
-
-  <tr>
-    <th>開始日</th>
-    <th>終了日</th>
-    <th>合計人数</th>
-    <th>一人あたり金額</th>
-    <th>宿泊日数</th>
-    <th>合計金額</th>
-  </tr>
-
 <%= form_with model: [@room, @roomreservation],  url: {action: 'create'} do |f| %>
-
-  <tr>
-    <td><%= @roomreservation.start_date.strftime("%Y/%m/%d") %></td>
-    <td><%= @roomreservation.end_date.strftime("%Y/%m/%d") %></td>
-    <td><%= @roomreservation.person_num %>人</td>
-    <td><%= @roomreservation.price %>円</td>
-    <td><%= @day.floor %>日</td>
-    <td><%= @total_price.floor %>円</td>
-    
-
-  </tr>
+<div class="reservation_image"><%= image_tag @roomreservation.room_image, size: '550x400' %></div>
+<table class="table">
+      <tr>
+        <th>開始日</th>
+        <td><%= @roomreservation.start_date.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>終了日</th>
+        <td><%= @roomreservation.end_date.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>合計人数</th>
+        <td><%= @roomreservation.person_num %>人</td>
+      </tr>
+      <tr>
+        <th>一人あたり金額</th>
+        <td><%= @roomreservation.price %>円</td>
+      </tr>
+      <tr>
+        <th>宿泊日数</th>
+        <td><%= @day.floor %>日</td>
+      </tr>
+      <tr>
+        <th>合計金額</th>
+        <td><%= @total_price.floor %>円</td>
+      </tr>
 </table>
 
-<%= f.hidden_field :start_date, value: @roomreservation.start_date %>
-<%= f.hidden_field :end_date, value: @roomreservation.end_date %>
-<%= f.hidden_field :person_num, value: @roomreservation.person_num %>
-<%= f.hidden_field :user_id, value: @users %>
-<%= f.hidden_field :room_id, value: @roomreservation.room_id %>
-<%= f.hidden_field :room_name, value: @roomreservation.room_name %>
-<%= f.hidden_field :comment, value: @roomreservation.comment %>
-<%= f.hidden_field :room_image, value: @roomreservation.room_image %>
-<%= f.hidden_field :price, value: @roomreservation.price %>
-<%= f.hidden_field :total_price, value: @total_price %>
+    <%= f.hidden_field :start_date, value: @roomreservation.start_date %>
+    <%= f.hidden_field :end_date, value: @roomreservation.end_date %>
+    <%= f.hidden_field :person_num, value: @roomreservation.person_num %>
+    <%= f.hidden_field :user_id, value: @users %>
+    <%= f.hidden_field :room_id, value: @roomreservation.room_id %>
+    <%= f.hidden_field :room_name, value: @roomreservation.room_name %>
+    <%= f.hidden_field :comment, value: @roomreservation.comment %>
+    <%= f.hidden_field :room_image, value: @roomreservation.room_image %>
+    <%= f.hidden_field :price, value: @roomreservation.price %>
+    <%= f.hidden_field :total_price, value: @total_price %>
 
-<%= f.submit "予約完了する"%>
+<div class="form-group">
+  <%= f.submit "登録する", class: "btn btn-primary" %>
+</div>
 
 <% end %>
+</div>
+
+
+

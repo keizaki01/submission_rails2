@@ -1,6 +1,6 @@
 
 
-<div class="container-fluid">
+<div class="container">
 <h1>登録済みルーム一覧</h1>
 <table class="table">
   <thead>
@@ -17,18 +17,19 @@
   </thead>
   <tbody>
   <% @rooms.each do |room| %>
-  <div class="row">
-    <tr class="contentbox">
-      <div class="col-5 col-xg-5"><td><%= image_tag room.room_image.url, size: '300x200' %></td></div>
-      <div class="col-1 col-xg-1"><td class="centercomponents"><%= room.room_name %></td></div>
-      <div class="col-1 col-xg-1"><td class="centercomponents"><%= room.comment %></td></div>
-      <div class="col-1 col-xg-1"><td class="centercomponents"><%= room.price %>円</td></div>
-      <div class="col-1 col-xg-1"><td class="centercomponents"><%= room.created_at.strftime("%Y/%m/%d") %></td></div>
-      <div class="col-1 col-xg-1"><td class="centercomponents"><%= link_to"予約する",room %></td></div>
-      <div class="col-1 col-xg-1"><td class="centercomponents"><%= link_to"編集する",edit_room_path(room.id) %></td></div>
-      <div class="col-1 col-xg-1"><td class="centercomponents"><%= button_to"削除する", room_path(room.id), method: :delete, data: { confirm: "本当に削除しますか？" } %></td></div>
-    </tr>
-  </div>
+  <%# <div class="row"> %>
+    
+<tr class="contentbox">
+      <td><%= image_tag room.room_image.url, size: '200x100' %></td>
+      <td class="centercomponents"><%= room.room_name %></td>
+      <td class="centercomponents"><%= room.comment %></td>
+      <td class="centercomponents"><%= room.price %>円</td>
+      <td class="centercomponents"><%= room.created_at.strftime("%Y/%m/%d") %></td>
+      <td class="centercomponents"><%= link_to"予約する",room %></td>
+      <td class="centercomponents"><%= link_to"編集する",edit_room_path(room.id) %></td>
+      <td class="centercomponents"><%= button_to"削除する", room_path(room.id), method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+</tr>
+  <%# </div> %>
     <% end %>
   </tbody>
 </table>

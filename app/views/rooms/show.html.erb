@@ -1,9 +1,9 @@
 
-<div class="container-fluid">
-<h3>About RooM</h3>
+<div class="container">
+<h1>About Room</h1>
     <table class="table">
       <tr>
-        <th>RooM Name</th>
+        <th>Room Name</th>
         <td><%= @room.room_name %></td>
       </tr>
       <tr>
@@ -28,9 +28,9 @@
       </tr>
     </table>
     <div class="row">
-    <div class="col-2 col-xg-2"><div class="btn btn-primary", type="button"><%= link_to"予約する", new_room_roomreservation_path(@room) %></div></div>
-    <div class="col-2 col-xg-2"><div class="btn btn-danger"><%= link_to"登録済み一覧に戻る", rooms_path %></div></div>
-    <div class="col-2 col-xg-2"><%= button_to"削除する", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？" } %></div>
+    <div class="col-4 col-xg-4"><div class="btn btn-outline-primary", type="button"><%= link_to"予約する", new_room_roomreservation_path(@room) %></div></div>
+    <div class="col-4 col-xg-4"><div class="btn btn-outline-primary"><%= link_to"登録済み一覧に戻る", rooms_path %></div></div>
+    <div class="col-4 col-xg-4"><%= button_to"削除する", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？" } %></div>
     </div>
 </div>
 

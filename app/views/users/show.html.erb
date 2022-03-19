@@ -1,19 +1,30 @@
-<h1>about me</h1>
 
-<h3>ユーザー名</h3>
-<%= @user.name %>
+<div class="container">
+<h1>プロフィール</h1>
+    <table class="table">
+      <tr>
+        <th>ユーザー名</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+        <% if @user.comment? %>
+        <td><%= @user.comment %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>画像</th>
+        <% if @user.avatar? %>
+        <td><%= image_tag @user.avatar.url, size: '400x400' %></td>
+        <% end %>
+      </tr>
+      
+    </table>
 
-<h3>メールアドレス</h3>
-<%= @user.email %>
-
-<h3>自己紹介</h3>
-<% if @user.comment? %>
-<%= @user.comment %>
-<% end %>
-
-<h3>画像</h3>
-<% if @user.avatar? %>
-<%= image_tag @user.avatar.url %>
-<% end %>
-
- <%= link_to "プロフィール編集", edit_user_path(current_user) %>
+ <div class="btn btn-outline-primary", type="button"><%= link_to "プロフィール編集", edit_user_path(current_user) %></div>
+  
+</div>

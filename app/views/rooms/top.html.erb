@@ -1,4 +1,4 @@
-<%# <div class="jumbotron-fluid text-center">
+<div class="jumbotron-fluid text-center">
  
   <div class="jumbotron-extend">
     <div class="container">
@@ -10,10 +10,10 @@
               <div class="row">
                 <div class="col-12 col-xg-12">Potepan Shareでまだ体験したことのない旅をしよう</div>
                 <div class="col-12 col-xg-12"><%= form_tag(search_rooms_path,:method => 'get') do %></div>
-                <%# <div class="col-12 col-xg-12"><%= text_field_tag :search  %></div>
-                <%# <div class="col-12 col-xg-12"><%= submit_tag '探す', :address => nil %></div>
-                <%# <% end %>
-              <%# </div>
+                <div class="col-12 col-xg-12"><%= text_field_tag :search %></div>
+                <div class="col-12 col-xg-12"><%= submit_tag '探す', :address => nil %></div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -22,21 +22,21 @@
     </div>
   
   </div>
-</div> %> %> %> %>
+</div>
 
 
 <%# <div class="jumbotron-extend"> %>
-<%# <div class="container">
+<div class="container">
 <h1 class="recommendarea">おすすめエリア</h1>
 <%# <div class="row"> %>
-<%# <div class="card-deck">
+<div class="card-deck">
 <div class="card">
 <img class="erea-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg">
   <div class="card-img-overlay">
     <div class="card-tirle">東京</div>
   </div>  
-</div> %> %> %>
-<%# 
+</div>
+
 <div class="card">
 <img class="erea-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg">
   <div class="card-img-overlay">
@@ -49,8 +49,8 @@
   <div class="card-img-overlay">
     <div class="card-tirle">京都</div>
   </div>  
-</div> %>
-<%# 
+</div>
+
 <div class="card">
 <img class="erea-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg">
   <div class="card-img-overlay">
@@ -59,7 +59,6 @@
 </div>
 
 <%# </div> %>
-<%# </div>
 </div>
-</div> %> %>
-
+</div>
+<%# </div> %>

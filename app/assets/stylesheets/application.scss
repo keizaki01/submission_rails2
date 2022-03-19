@@ -15,19 +15,68 @@
  @import "bootstrap";
 
 
-//  .content_parts{
-//   margin-bottom: 3rem;
-//   margin-top: 2rem;
-// }
+// ヘッダー・フッダー画面
+*{
+  margin:0;
+  padding:0;
+  }
+  
+.header_box{
+  background-color: black;
+}
+.navbar_box{
+  background-color: red;
+}
+.footer_box{
+  background-color: black;
+}
+// トップ画面
+.jumbotron-extend{
+  height: 60vh;
+  width: 100%;
+  background: url(https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg) no-repeat center center;
+  background-size: cover;
+}
+.card-extend{
+  width: 50%;
+  margin: 0 auto;
+}
+.top_main_card{
+  position: relative;
+  top: 10vh;
+}
+.recommendarea{
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.erea-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-tirle{
+  color: black;
+  text-align: center;
+  font-size: larger;
+}
+
+// ルーム登録画面
 .container .enclosure_box{
   border: 1px solid #eaedef;
 }
-
- .content_parts{
+.content_parts{
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
 
+// ルーム一覧画面
 .contentbox .centercomponents{
   vertical-align: middle;
+  // width: 100%;
+  // height: 100%;
+  // object-fit: cover;
+}
+
+h1{
+  margin:5vh 0;
 }

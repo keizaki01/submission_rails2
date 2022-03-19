@@ -1,4 +1,7 @@
 class RoomsController < ApplicationController
+  def top
+    @user = current_user
+  end  
 
   def index
     @user = current_user  
@@ -53,5 +56,7 @@ class RoomsController < ApplicationController
     @user = current_user  
     @rooms = Room.search(params[:search])
   end
+
+  
 end
 end

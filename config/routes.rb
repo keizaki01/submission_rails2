@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :rooms do
     collection do
      get 'search' => 'rooms#search'
+     get 'top' => 'rooms#top'
     end  
 
     resources :roomreservations, :except => :show

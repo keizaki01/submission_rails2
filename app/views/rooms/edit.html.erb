@@ -1,34 +1,71 @@
-<%= form_with model: @room do |f| %>
-<dl>
- <p>ルーム情報編集</p> 
+<div class="container">
+  <%= form_with model: @room do |f| %>
+  <div class="enclosure_box>
+    <div class="border-bottom">
+      <h1>ルーム情報編集</h1>
+    </div>
 
- <div class = room_content>
-  <dt><%= f.label:room_name,"ルーム名" %></dt>
-  <dd><%= f.text_field:room_name, placeholder:"ルーム名を入力" %></dd>
- </div>
+    <form>
+      <div class="content_parts">
+        <div class="border-bottom">
+          <div class="form-group row">
+          <label class="col-lg-3 for="room_name">ルーム名</label>
+          <div class="col-lg-9">
+            <%= f.text_field :room_name, class: "form-control", placeholder: "ルーム名を入力" %>
+          </div>
+          </div>
+        </div>
+      </div>
 
- <div class = room_content>
-  <dt><%= f.label:comment,"ルーム紹介" %></dt>
-  <dd><%= f.text_field:comment, placeholder:"ルーム説明を入力" %></dd>
- </div>
+      <div class="content_parts">
+        <div class="border-bottom">
+          <div class="form-group row">
+          <label class="col-lg-3 for="room_name">ルーム紹介</label>
+          <div class="col-lg-9">
+            <%= f.text_field :comment, class: "form-control", placeholder: "ルーム説明を入力" %>
+          </div>
+          </div>
+        </div>
+      </div>
 
- <div class = room_content>
-  <dt><%= f.label:price,"料金" %></dt>
-  <dd><%= f.number_field:price, placeholder:"一日あたりの料金を入力" %></dd>
- </div>
+      <div class="content_parts">
+        <div class="border-bottom">
+          <div class="form-group row">
+          <label class="col-lg-3 for="room_name">料金</label>
+          <div class="col-lg-9">
+            <%= f.number_field :price, class: "form-control", placeholder: "一日あたりの料金を入力" %>
+          </div>
+          </div>
+        </div>
+      </div>
 
- <div class = room_content>
-  <dt><%= f.label:address,"住所" %></dt>
-  <dd><%= f.text_field:address, placeholder:"住所を入力" %></dd>
- </div>
+      <div class="content_parts">
+        <div class="border-bottom">
+          <div class="form-group row">
+          <label class="col-lg-3 for="room_name">住所</label>
+          <div class="col-lg-9">
+            <%= f.text_field :address, class: "form-control", placeholder: "住所を入力" %>
+          </div> 
+          </div> 
+        </div>
+      </div>
 
- <div class = room_content>
-  <dt><%= f.label:room_image,"ルーム画像" %></dt>
-  <dd><%= f.file_field:room_image %></dd>
- </div>
+      <div class="content_parts">
+        <div class="border-bottom">
+          <div class="form-group row">
+          <label class="col-lg-3 for="room_name">ルーム画像</label>
+          <div class="col-lg-9">
+            <%= f.file_field :room_image, class: "form-control-file", placeholder: "ルーム画像" %>
+          </div> 
+          </div> 
+        </div>
+      </div>
 
- <div class = "submission">
-  <%= f.submit "登録"%>
- </div>
-</dl>
-<% end %>
+      <div class="form-group">
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      </div>
+      
+    </form>
+  </div>
+  <% end %>
+</div>

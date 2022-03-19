@@ -37,7 +37,7 @@ class RoomreservationsController < ApplicationController
     if @roomreservation.save
        redirect_to  room_roomreservations_path 
     else
-       render reservations_index_path
+       render top_rooms_path
     end
     # binding.pry
   end
@@ -47,6 +47,7 @@ class RoomreservationsController < ApplicationController
     @users = current_user.id
     @room = Room.find(params[:room_id])
     @roomreservation = Roomreservation.find(params[:id])
+    @roomreservation = Roomreservation.save
     @day = (@roomreservation.end_date - @roomreservation.start_date) / 86400
     @total_price = @roomreservation.person_num * @roomreservation.price * @day
   end
@@ -55,14 +56,16 @@ class RoomreservationsController < ApplicationController
     @user = current_user 
     @room = Room.find(params[:room_id])
     @users = current_user.id
-    @roomreservation = Roomreservation.update(roomreservation_for_create_params)
+    @roomreservation = Roomreservation.find(roomreservation_for_create_params)
+    # binding.pry
   end
 
   def update
     @user = current_user 
     @room = Room.find(params[:room_id])
     @roomreservation = Roomreservation.find(params[:id])
-    if @roomreservation.update(roomreservation_for_create_params)
+    # binding.pry
+    if @roomreservation.update(roomreservation_for_edit_params)
     redirect_to roomreservations_index_path
     else
      render "edit"
@@ -80,6 +83,10 @@ class RoomreservationsController < ApplicationController
   private
   def roomreservation_for_create_params
     params.require(:roomreservation).permit(:start_date, :end_date, :person_num, :room_id, :user_id, :room_name, :comment, :room_image, :price, :total_price)
+  end 
+
+  def roomreservation_for_edit_params
+    params.permit(:start_date, :end_date, :person_num, :room_id, :user_id, :room_name, :comment, :room_image, :price, :total_price)
   end 
 
 end

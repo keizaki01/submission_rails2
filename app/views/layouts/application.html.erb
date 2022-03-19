@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+d<!DOCTYPE html>
 <html>
   <head>
     <title>Myapp</title>
@@ -12,55 +12,65 @@
   </head>
 
   <body>
-  <div class="container">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="collapse navbar-collapse"><%= link_to "Pote Share",reservations_index_path%></div>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <%= form_tag(search_rooms_path,:method => 'get') do %>
-              <div class="input-group">
-                <%= text_field_tag :search %>
-                <span class="input-group-btn">
-                <%= submit_tag 'Search', :address => nil %>
-                </span>
-              </div>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-
-      <div class="collapse navbar-collapse">
-        <div class="dropdown">
-          <button class="btn btn-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          <% if @user.avatar? %>    
-            <%= image_tag @user.avatar.url, class: "rounded-circle", size: "50x50" %>
-          <% else %>
-            <%= image_tag "default.png", size: "50x50" %>
-          <% end %>
-          </button>  
-          <ul class="dropdown-menu">
-            <li><button class="dropdown-item"><%= link_to "ルーム登録", new_room_path %></button></li>
-            <li><button class="dropdown-item"><%= link_to "予約済みルーム一覧",  roomreservations_index_path %></button></li>
-            <li><button class="dropdown-item"><%= link_to "登録済みルーム一覧", rooms_path %></button></li>
-            <li><button class="dropdown-item"><%= link_to "アカウント情報", mypage_path %></button></li>
-            <li><button class="dropdown-item"><%= link_to "ログアウト", :destroy_user_session %></button></li>
+  <div class="header_box">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-sm navbar-dark">
+        <div class="collapse navbar-collapse"><%= link_to "Pote Share",top_rooms_path%></div>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= form_tag(search_rooms_path,:method => 'get') do %>
+                <div class="input-group">
+                  <%= text_field_tag :search %>
+                  <span class="input-group-btn">
+                  <%= submit_tag 'Search', :address => nil %>
+                  </span>
+                </div>
+              <% end %>
+            </li>
           </ul>
         </div>
-      </div>
-      
+
+        <% if user_signed_in? %>
+        
+        <div class="collapse navbar-collapse">
+          <div class="dropdown">
+            <button class="btn btn-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if @user.avatar? %>    
+              <%= image_tag @user.avatar.url, class: "rounded-circle", size: "50x50" %>
+            <% else %>
+              <%= image_tag "default.png", size: "50x50" %>
+            <% end %>
+            </button>  
+            <ul class="dropdown-menu">
+              <li><button class="dropdown-item"><%= link_to "ルーム登録", new_room_path %></button></li>
+              <li><button class="dropdown-item"><%= link_to "予約済みルーム一覧",  roomreservations_index_path %></button></li>
+              <li><button class="dropdown-item"><%= link_to "登録済みルーム一覧", rooms_path %></button></li>
+              <li><button class="dropdown-item"><%= link_to "アカウント情報", mypage_path %></button></li>
+              <li><button class="dropdown-item"><%= link_to "ログアウト", :destroy_user_session %></button></li>
+            </ul>
+          </div>
+        </div>
+
+        <% else %>
+        <button class = "btn btn-outline-primary"><%= link_to "登録する", :new_user_registration %></button>
+        <button class = "btn btn-outline-primary"><%= link_to "ログイン", :user_session %></button>
+
+        <% end %>    
+
+      </nav>  
+    </div>
   </div>
   </body>
-  
-  <main>
-  </main>
 
   <%= yield %>
-    <footer>
-    <%# <h1>あ</h1> %>
-    </footer>
-    
+  <footer>
+  <div class="footer_box>
+  2022.3
+  </div>
+  </footer>
+
 </html>
 
 

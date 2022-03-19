@@ -1,18 +1,58 @@
+<div class="container">
 <h1>プロフィール編集</h1>
-<%= form_with model: @user do |form| %>
-<dl>
- <dt><%= form.label:name,"ユーザー名" %></dt>
- <dd><%= form.text_field :name %></dd> 
+  <%= form_with model: @user do |f| %>
+  <div class="enclosure_box>
 
- <dt><%= form.label:email,"メールアドレス" %></dt>
- <dd><%= form.text_field :email %></dd> 
+        <form>
+          <div class="content_parts">
+            <div class="border-bottom">
+              <div class="form-group row">
+              <label class="col-lg-3 for="name">ユーザー名</label>
+              <div class="col-lg-9">
+                <%= f.text_field :name, class: "form-control", placeholder: "ユーザー名を入力" %>
+              </div>
+              </div>
+            </div>
+          </div>
 
- <dt><%= form.label:comment,"自己紹介" %></dt>
- <dd><%= form.text_field :comment %></dd> 
-  
- <dt><%= form.label:avatar,"プロフィール画像" %></dt>
- <dd><%= form.file_field :avatar %></dd> 
-  
- <div><%= form.submit "保存" %></div>
-</dl>
-<% end %>
+          <div class="content_parts">
+            <div class="border-bottom">
+              <div class="form-group row">
+              <label class="col-lg-3 for="email">メールアドレス</label>
+              <div class="col-lg-9">
+                <%= f.text_field :email, class: "form-control", placeholder: "メールアドレスを入力" %>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content_parts">
+            <div class="border-bottom">
+              <div class="form-group row">
+              <label class="col-lg-3 for="comment">自己紹介</label>
+              <div class="col-lg-9">
+                <%= f.text_field :comment, class: "form-control", placeholder: "自己紹介を入力" %>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content_parts">
+            <div class="border-bottom">
+              <div class="form-group row">
+              <label class="col-lg-3 for="avatar">プロフィール画像</label>
+              <div class="col-lg-9">
+                <%= f.file_field :avatar, class: "form-control", placeholder: "プロフィール画像" %>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit "登録する", class: "btn btn-primary" %>
+          </div>
+        
+        </form>
+        </div>
+  <% end %>
+</div>
