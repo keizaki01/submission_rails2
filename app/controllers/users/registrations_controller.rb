@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -13,8 +13,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to mypage_path(current_user)
+      session = @user.id
+      redirect_to mypage_path
     else 
       render "new"
     end
@@ -47,9 +47,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -63,21 +63,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
+    # user_path(resource)
   # end
   
-  def create
-    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
-   if @user.save
-     redirect_to mypage_path
-   else 
-     render "new"
-   end
-  end
+  # def create
+  #   @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
+  #  if @user.save
+  #    redirect_to mypage_path
+  #  else 
+  #    render "new"
+  #  end
+  # end
 
-  def edit
+  # def edit
 
-  end
+  # end
   # protected
   # アカウント編集後、プロフィール画面に移動する
   # def after_update_path_for(resource)

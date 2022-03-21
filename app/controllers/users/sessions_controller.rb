@@ -23,19 +23,12 @@ class Users::SessionsController < Devise::SessionsController
   def login(email, password)
     @user = User.find_by(email: email)
     if @user && @user.authenticate(password)
-      # ログイン成功
       session[:user_id] = @user.id
       return true
     else
-      # ログイン失敗
       return false
     end
+    # binding.pry
   end
 
-  # protected
- 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
 end

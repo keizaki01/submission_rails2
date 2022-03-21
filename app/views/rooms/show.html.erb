@@ -1,30 +1,26 @@
 
 <div class="container">
-<h1>About Room</h1>
+<h1>ルーム詳細</h1>
     <table class="table">
       <tr>
-        <th>Room Name</th>
+        <th>ルーム名</th>
         <td><%= @room.room_name %></td>
       </tr>
       <tr>
-        <th>Comment</th>
+        <th>ルーム紹介</th>
         <td><%= @room.comment %></td>
       </tr>
       <tr>
-        <th>Price/day</th>
+        <th>料金</th>
         <td><%= @room.price %>円</td>
       </tr>
       <tr>
-        <th>At</th>
+        <th>住所</th>
         <td><%= @room.address %></td>
       </tr>
       <tr>
-        <th>Image</th>
+        <th>イメージ画像</th>
         <td><%= image_tag @room.room_image.url, size: '300x200' %></td>
-      </tr>
-      <tr>
-        <th>投稿者ID</th>
-        <td><%= @room.user_id %></td>
       </tr>
     </table>
     <div class="row">

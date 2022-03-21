@@ -7,19 +7,12 @@ class Room < ApplicationRecord
   validates :room_image, presence: true
   has_many :roomreservations, dependent: :destroy
 
-  # def search(keyword)
-  #   if keyword
-  #     Room.where(["address like? OR comment like?", "%#{keyword}%", "%#{keyword}%"])
-  #   else
-  #     Room.all
-  #   end
-  #  end
-
   def self.search(search)
     if search
-      Room.where(['address LIKE ?', "%#{search}%"])
+      Room.where(['address LIKE ? OR comment LIKE ? OR room_name LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       Room.all
     end
   end
+
 end

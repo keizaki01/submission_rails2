@@ -1,40 +1,42 @@
 <div class="container">
-<h1>予約編集画面</h1>
-<%= form_with model: [@room, @roomreservation],  url: {action: 'editconfirm'} do |f| %>
-
-<form>
-  <div class="form-group row">
-    <label class="col-lg-3 for="start_date">開始日</label>
-      <div class="col-lg-9">
-        <%= f.date_field :start_date, class: "form-control", placeholder: "開始日を入力" %>
+  <h1>予約編集画面</h1>
+  <%= render "shared/error", obj: @roomreservation %>
+  <%= form_with model: [@room, @roomreservation],  url: {action: 'update'} do |f| %>
+    <form>
+      <div class="form-group row">
+        <label class="col-lg-3 for="start_date"><div class="for_mark">開始日</div></label>
+          <div class="col-lg-9">
+            <%= f.date_field :start_date, class: "form-control", placeholder: "開始日を入力" %>
+          </div>
       </div>
-  </div>
 
-  <div class="form-group row">
-    <label class="col-lg-3 for="end_date">終了日</label>
-      <div class="col-lg-9">
-        <%= f.date_field :end_date, class: "form-control", placeholder: "終了日を入力" %>
+      <div class="form-group row">
+        <label class="col-lg-3 for="end_date"><div class="for_mark">終了日</div></label>
+          <div class="col-lg-9">
+            <%= f.date_field :end_date, class: "form-control", placeholder: "終了日を入力" %>
+          </div>
       </div>
-  </div>
 
-  <div class="form-group row">
-    <label class="col-lg-3 for="person_num">人数</label>
-      <div class="col-lg-9">
-        <%= f.number_field :person_num, class: "form-control", placeholder: "開始日を入力" %>
+      <div class="form-group row">
+        <label class="col-lg-3 for="person_num"><div class="for_mark">人数</div></label>
+          <div class="col-lg-9">
+            <%= f.number_field :person_num, class: "form-control", placeholder: "開始日を入力" %>
+          </div>
       </div>
-  </div>
 
-  <div class="form-group">
-    <%= f.submit "登録する", class: "btn btn-primary" %>
-  </div>
+      <div class="form-group">
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      </div>
 
-  <%= f.hidden_field :user_id, value: @users %>
-  <%= f.hidden_field :room_id, value: @room.id %>
-  <%= f.hidden_field :room_name, value: @room.room_name %>
-  <%= f.hidden_field :comment, value: @room.comment %>
-  <%= f.hidden_field :room_image, value: @room.room_image %>
-  <%= f.hidden_field :price, value: @room.price %>
+      <%= f.hidden_field :user_id, value: @users %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.hidden_field :room_name, value: @room.room_name %>
+      <%= f.hidden_field :comment, value: @room.comment %>
+      <%= f.hidden_field :room_image, value: @room.room_image %>
+      <%= f.hidden_field :price, value: @room.price %>
+      <%= f.hidden_field :price, value: @roomreservation.price %>
+      <%= f.hidden_field :total_price, value: @total_price %>
 
-</form>
-<% end %>
+    </form>
+  <% end %>
 </div>

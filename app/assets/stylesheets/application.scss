@@ -29,7 +29,24 @@
 }
 .footer_box{
   background-color: black;
+  margin-top: 10vh;
+  padding-bottom: 5vh;
 }
+.footer_box p{
+  color: #eaedef;
+  text-align: center;
+  padding-top: 5vh;
+}
+.mgright_space{
+  margin-right: 2vw;
+}
+.title_top{
+  font-size: 1.5vw;
+}
+.for_user_name{
+  color: #fff;
+}
+
 // トップ画面
 .jumbotron-extend{
   height: 60vh;
@@ -46,15 +63,15 @@
   top: 10vh;
 }
 .recommendarea{
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
-.erea-image{
+.area-image{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.card-tirle{
+.card-title{
   color: black;
   text-align: center;
   font-size: larger;
@@ -65,18 +82,23 @@
   border: 1px solid #eaedef;
 }
 .content_parts{
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+}
+.for_mark::after{
+  content: "必須";
+    color: #fff;
+    background-color: #ff0000a8;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 0 5px;
 }
 
-// ルーム一覧画面
+// 一覧画面
 .contentbox .centercomponents{
   vertical-align: middle;
-  // width: 100%;
-  // height: 100%;
-  // object-fit: cover;
 }
-
 h1{
   margin:5vh 0;
 }
