@@ -1,0 +1,57 @@
+<div class="jumbotron-fluid text-center">
+  <div class="jumbotron-extend">
+    <div class="container">
+      <div class="card-extend">
+      <div class="top_main_card">
+        <div class="card">
+          <div class="card-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-xg-12">Potepan Shareでまだ体験したことのない旅をしよう</div>
+                <div class="col-12 col-xg-12"><%= form_tag(search_rooms_path,:method => 'get') do %></div>
+                  <div class="col-12 col-xg-12"><%= text_field_tag :search, '', placeholder: "エリア・キーワード" %></div>
+                  <div class="col-12 col-xg-12"><%= submit_tag '探す', :address => nil, class: "btn btn-primary" %></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+      </div>  
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="recommendarea text-center">おすすめエリア</h1>
+    <div class="card-deck">
+      <div class="card">
+        <img class="area-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg">
+        <div class="card-img-overlay">
+          <div class="card-title"><div class="btn btn-light"><%= link_to '東京', tokyo_rooms_path %></div></div>
+        </div>  
+      </div>
+
+      <div class="card">
+        <img class="area-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg">
+        <div class="card-img-overlay">
+          <div class="card-title"><div class="btn btn-light"><%= link_to '大阪', osaka_rooms_path %></div></div>
+        </div>  
+      </div>
+
+      <div class="card">
+        <img class="area-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg">
+        <div class="card-img-overlay">
+          <div class="card-title"><div class="btn btn-light"><%= link_to '京都', kyoto_rooms_path %></div></div>
+        </div>  
+      </div>
+
+      <div class="card">
+        <img class="area-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg">
+        <div class="card-img-overlay">
+          <div class="card-title"><div class="btn btn-light"><%= link_to '札幌', sapporo_rooms_path %></div></div>
+        </div>  
+      </div>
+    </div>
+</div>
+

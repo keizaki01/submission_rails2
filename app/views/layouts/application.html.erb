@@ -3,14 +3,84 @@
   <head>
     <title>Myapp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <div class="header_box">
+    <div class="container">
+      <nav class="navbar navbar-expand-sm navbar-dark">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <div class="mgright_space">
+              <div class="collapse navbar-collapse">
+                <div class="title_top"><%= link_to "Pote Share",top_rooms_path%></div>
+              </div>
+            </div>  
+          </li> 
+          <li class="nav-item"> 
+            <div class="collapse navbar-collapse">
+              <%= form_tag(search_rooms_path,:method => 'get') do %>
+                <div class="input-group">
+                  <%= text_field_tag :search, '', placeholder: "エリア・キーワード" %>
+                  <span class="input-group-btn">
+                  <%= submit_tag 'Search', :address => nil, class: "btn btn-outline-primary" %>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+     
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <div class="collapse navbar-collapse">
+              <div class="dropdown">
+                <button class="btn btn-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <% if @user.avatar? %>    
+                  <%= image_tag @user.avatar.url, class: "rounded-circle", size: "50x50" %>
+                 <% else %>
+                  <%= image_tag 'noimage.jpg', size: "50x50" %>
+                <% end %>
+                </button>  
+                  <ul class="dropdown-menu">
+                    <li><button class="dropdown-item"><%= link_to "ルーム登録", new_room_path %></button></li>
+                    <li><button class="dropdown-item"><%= link_to "予約済みルーム一覧",  roomreservations_index_path %></button></li>
+                    <li><button class="dropdown-item"><%= link_to "登録済みルーム一覧", rooms_path %></button></li>
+                    <li><button class="dropdown-item"><%= link_to "アカウント情報", mypage_path %></button></li>
+                    <li><button class="dropdown-item"><%= link_to "ログアウト", :destroy_user_session %></button></li>
+                  </ul>
+              </div>
+           </div>
+        </li>
+      </ul>
+
+        <% else %>
+        <button class = "btn btn-outline-primary"><%= link_to "登録する", :new_user_registration %></button>
+        <button class = "btn btn-outline-primary"><%= link_to "ログイン", :user_session %></button>
+
+        <% end %>    
+
+      </nav>  
+    </div>
+  </div>
   </body>
+
+  <%= yield %>
+  <footer>
+  <div class="footer_box">
+  <p>2022.3</p>
+  </div>
+  </footer>
+
 </html>
+
+
+
+
